@@ -1,55 +1,105 @@
-class Usuario{
-    constructor(nombre, apellido, libros, mascotas){
-        this.nombre = nombre,
-        this.apellido = apellido,
-        this.libros = libros,
-        this.mascotas = mascotas
+const fs = require("fs");
+
+
+// Clase contenedora
+class Contenedor {
+    constructor(ruta){
+        this.ruta = ruta;
     }
 
-    // Obtener el nombre completo.
-    getFullName(){
-        console.log(`${this.nombre} ${this.apellido}`);
+    // Funcion que retorna el archivo de texto parseado.
+    leerArchivo = async () => {
+        const content = await fs.promises.readFile(this.ruta, "utf-8");
+
+        return await JSON.parse(content);
     }
 
-
-    // Agregar una mascota.
-    addMascota(pet){
-        this.mascotas.push(pet);
-        console.log(this.mascotas)
-    }
-
-    // Obtener la cantidad de mascotas que tiene el usuario.
-    countMascotas(){
-        console.log(this.mascotas.length)
-    }
-
-    // Agregar un libro con su nombre y autor.
-    addBook(name, autor){
-        this.libros.push({name, autor});
-        console.log(this.libros);
-    }
-
-    // Obtener el nombre de los libros que tenga el usuario
-    getBookNames(){
-        this.libros.forEach( (libro) => {
-            console.log(libro.name);
-        })
+    // Metodo para guardar un producto
+    async save(producto){
+        try {
+            const contenidoParseado = await this.leerArchivo();    
+            
+            contenidoParseado.length === 0 
+                ? await fs.promises.writeFile(this.ruta, JSON.stringify([...contenidoParseado, {...producto, id: 1}], null, 2), "utf-8")
+             
+                : await fs.promises.writeFile(this.ruta, JSON.stringify([...contenidoParseado, {...producto, id: contenidoParseado.length + 1}], null, 2), "utf-8");
+            
+                return console.log(contenidoParseado.length + 1)
+        
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
 
 
+    // Metodo para obtener un producto por su id.
+    async getById(idProducto){
+        const contenidoParseado = await this.leerArchivo();
+
+        let productoBuscado = contenidoParseado.filter(e => e.id === idProducto); //filtramos el producto con el mismo id hardcodeado.
+
+        if(productoBuscado.length === 0){ //si no se encuentra ningun producto pasa a ser nulo.
+            productoBuscado = null;
+        }
+
+        return console.log(productoBuscado);
+    }
+
+
+    // Metodo para obtener todos los productos del archivo.
+    async getAll(){
+        try {
+            const contenidoParseado = await this.leerArchivo();
+
+            return console.log(contenidoParseado);
+
+        } catch (error) {
+            console.log(error)
+        }
+        
+    }
+    
+
+    // Metodo para eliminar un producto por su id.
+    async deleteById(idProducto){
+        try {
+            const contenidoParseado = await this.leerArchivo();
+
+            const contenidoNoEliminado = contenidoParseado.filter( e => e.id !== idProducto); //filtramos los productos con el id diferente al hardcodeado.
+
+            await fs.promises.writeFile(this.ruta, JSON.stringify([...contenidoNoEliminado], null, 2), "utf-8");
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    // Metodo para eliminar todos los productos.
+    async deleteAll(){
+        try {
+            await fs.promises.writeFile(this.ruta,"[]", "utf-8");
+
+        } catch (error) {
+            console.log(error);
+        }
+
+
+    }
 }
 
 
-const usuario1 = new Usuario("Mauricio", "Garcia", [], []);
+const contenedorUno = new Contenedor("productos.txt");
 
-usuario1.getFullName();
 
-usuario1.addMascota("perro");
 
-usuario1.addMascota("gato");
+// contenedorUno.save({name:"arroz", price: 150});
 
-usuario1.countMascotas();
+// contenedorUno.getById(4);
 
-usuario1.addBook("Don Quijote de la mancha", "Miguel de Cervantes");
+// contenedorUno.getAll();
 
-usuario1.getBookNames();
+// contenedorUno.deleteById(3);
+
+// contenedorUno.deleteAll();
