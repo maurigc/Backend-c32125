@@ -24,7 +24,7 @@ class Contenedor {
              
                 : await fs.promises.writeFile(this.ruta, JSON.stringify([...contenidoParseado, {...producto, id: contenidoParseado.length + 1}], null, 2), "utf-8");
             
-                return console.log(contenidoParseado.length + 1)
+                return contenidoParseado.length + 1;
         
         } catch (error) {
             console.log(error)
@@ -43,7 +43,7 @@ class Contenedor {
             productoBuscado = null;
         }
 
-        return console.log(productoBuscado);
+        return productoBuscado;
     }
 
 
@@ -52,7 +52,7 @@ class Contenedor {
         try {
             const contenidoParseado = await this.leerArchivo();
 
-            return console.log(contenidoParseado);
+            return contenidoParseado;
 
         } catch (error) {
             console.log(error)
@@ -80,7 +80,7 @@ class Contenedor {
     async deleteAll(){
         try {
             await fs.promises.writeFile(this.ruta,"[]", "utf-8");
-
+            console.log("listo")
         } catch (error) {
             console.log(error);
         }
@@ -92,14 +92,8 @@ class Contenedor {
 
 const contenedorUno = new Contenedor("productos.txt");
 
+// contenedorUno.save({name: "arroz", price: 150});
 
 
-// contenedorUno.save({name:"arroz", price: 150});
 
-// contenedorUno.getById(4);
-
-// contenedorUno.getAll();
-
-// contenedorUno.deleteById(3);
-
-// contenedorUno.deleteAll();
+module.exports = contenedorUno;

@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "name": "arroz",
+    "price": 150,
+    "id": 1
+  },
+  {
+    "name": "fideos",
+    "price": 180,
+    "id": 2
+  },
+  {
+    "name": "pan",
+    "price": 100,
+    "id": 3
+  }
+]
