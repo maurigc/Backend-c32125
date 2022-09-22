@@ -1,60 +1,41 @@
-const fs = require("fs");
-
-
 // Clase contenedora
 class Contenedor {
-    constructor(ruta){
-        this.ruta = ruta;
+    constructor(array){
+        this.array = array;
     }
 
-    // Funcion que retorna el archivo de texto parseado.
-    leerArchivo = async () => {
-        const content = await fs.promises.readFile(this.ruta, "utf-8");
+    update(idProducto, nombre, precio){
+        try {
+            
+            const productoBuscado = this.array.find(e => e.id === idProducto); //Buscamos el producto con el mismo id. 
 
-        return await JSON.parse(content);
+            productoBuscado.name = nombre;
+            productoBuscado.price = precio;
+            
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     // Metodo para actualizar un producto.
-    async update(idProducto, nombre, precio){
+    save(producto){
         try {
-            const contenidoParseado = await this.leerArchivo();
 
-            const productoEncontrado = contenidoParseado.find( product => product.id === parseInt(idProducto));
+            this.array.length === 0 ? this.array.push({...producto, id: 1}) : this.array.push({...producto, id: this.array.length + 1});;
+            
 
-            productoEncontrado.name = nombre;
-            productoEncontrado.price = precio;
-
-            await fs.promises.writeFile(this.ruta, JSON.stringify([...contenidoParseado], null, 2), "utf-8");
+            return this.array.length;
 
         } catch (error) {
             console.log(error);
         }
     }
 
-    // Metodo para guardar un producto
-    async save(producto){
-        try {
-            const contenidoParseado = await this.leerArchivo();    
-            
-            contenidoParseado.length === 0 
-                ? await fs.promises.writeFile(this.ruta, JSON.stringify([...contenidoParseado, {...producto, id: 1}], null, 2), "utf-8")
-             
-                : await fs.promises.writeFile(this.ruta, JSON.stringify([...contenidoParseado, {...producto, id: contenidoParseado.length + 1}], null, 2), "utf-8");
-            
-                return contenidoParseado.length + 1;
-        
-        } catch (error) {
-            console.log(error)
-        }
-        
-    }
-
 
     // Metodo para obtener un producto por su id.
-    async getById(idProducto){
-        const contenidoParseado = await this.leerArchivo();
+    getById(idProducto){
 
-        let productoBuscado = contenidoParseado.find(e => e.id === idProducto); //Buscamos el producto con el mismo id.
+        let productoBuscado = this.array.find(e => e.id === idProducto); //Buscamos el producto con el mismo id.
 
         if(productoBuscado === undefined){ //si no se encuentra ningun producto pasa a ser nulo.
             productoBuscado = null;
@@ -65,11 +46,9 @@ class Contenedor {
 
 
     // Metodo para obtener todos los productos del archivo.
-    async getAll(){
+    getAll(){
         try {
-            const contenidoParseado = await this.leerArchivo();
-
-            return contenidoParseado;
+            return this.array;
 
         } catch (error) {
             console.log(error)
@@ -79,13 +58,14 @@ class Contenedor {
 
 
     // Metodo para eliminar un producto por su id.
-    async deleteById(idProducto){
+    deleteById(idProducto){
         try {
-            const contenidoParseado = await this.leerArchivo();
+            const contenidoNoEliminado = this.array.filter( e => e.id !== idProducto); //filtramos los productos con el id diferente al hardcodeado.
 
-            const contenidoNoEliminado = contenidoParseado.filter( e => e.id !== idProducto); //filtramos los productos con el id diferente al hardcodeado.
+            this.array = []; //Borramos todo el contenido del array.
 
-            await fs.promises.writeFile(this.ruta, JSON.stringify([...contenidoNoEliminado], null, 2), "utf-8");
+            this.array.push(...contenidoNoEliminado); //Hacemo un push con el contenido sin el producto que eliminamos.
+
 
         } catch (error) {
             console.log(error)
@@ -94,10 +74,10 @@ class Contenedor {
 
 
     // Metodo para eliminar todos los productos.
-    async deleteAll(){
+    deleteAll(){
         try {
-            await fs.promises.writeFile(this.ruta,"[]", "utf-8");
-            console.log("listo")
+            this.array = [];
+    
         } catch (error) {
             console.log(error);
         }
@@ -107,7 +87,7 @@ class Contenedor {
 }
 
 
-const contenedorUno = new Contenedor("productos.txt");
+const contenedorUno = new Contenedor([]);
 
 
 module.exports = contenedorUno;
