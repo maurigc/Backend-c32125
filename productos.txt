@@ -1,17 +1,17 @@
 [
   {
-    "name": "arroz",
-    "price": 150,
+    "name": "cafe",
+    "price": 600,
     "id": 1
   },
   {
     "name": "fideos",
-    "price": 180,
+    "price": 100,
     "id": 2
   },
   {
     "name": "pan",
-    "price": 100,
+    "price": 30,
     "id": 3
   }
 ]

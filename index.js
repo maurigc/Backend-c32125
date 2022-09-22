@@ -14,6 +14,23 @@ class Contenedor {
         return await JSON.parse(content);
     }
 
+    // Metodo para actualizar un producto.
+    async update(idProducto, nombre, precio){
+        try {
+            const contenidoParseado = await this.leerArchivo();
+
+            const productoEncontrado = contenidoParseado.find( product => product.id === parseInt(idProducto));
+
+            productoEncontrado.name = nombre;
+            productoEncontrado.price = precio;
+
+            await fs.promises.writeFile(this.ruta, JSON.stringify([...contenidoParseado], null, 2), "utf-8");
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     // Metodo para guardar un producto
     async save(producto){
         try {
@@ -37,9 +54,9 @@ class Contenedor {
     async getById(idProducto){
         const contenidoParseado = await this.leerArchivo();
 
-        let productoBuscado = contenidoParseado.filter(e => e.id === idProducto); //filtramos el producto con el mismo id hardcodeado.
+        let productoBuscado = contenidoParseado.find(e => e.id === idProducto); //Buscamos el producto con el mismo id.
 
-        if(productoBuscado.length === 0){ //si no se encuentra ningun producto pasa a ser nulo.
+        if(productoBuscado === undefined){ //si no se encuentra ningun producto pasa a ser nulo.
             productoBuscado = null;
         }
 
@@ -59,7 +76,7 @@ class Contenedor {
         }
         
     }
-    
+
 
     // Metodo para eliminar un producto por su id.
     async deleteById(idProducto){
@@ -91,9 +108,6 @@ class Contenedor {
 
 
 const contenedorUno = new Contenedor("productos.txt");
-
-// contenedorUno.save({name: "arroz", price: 150});
-
 
 
 module.exports = contenedorUno;
