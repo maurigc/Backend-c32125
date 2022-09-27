@@ -7,19 +7,24 @@ const router = Router();
 
 
 
-// Rutas raiz de producto.
 router.get("/", (req, res) => {
+    res.render("pages/index");
+})
 
-    const todosProductos = contenedor.getAll();
 
-    todosProductos.length === 0 ? res.status(400).json("No hay ningun producto guardado") : res.status(200).json(todosProductos);
+// Rutas raiz de producto.
+router.get("/productos", (req, res) => {
+
+    const productoParaGuardar = req.body;
+
+    res.render("pages/listaProductos", {productoParaGuardar, contenedor})
     
 })
 
 
 
 // Ruta para obtener producto por id.
-router.get("/:id", (req, res) => {
+router.get("/productos/:id", (req, res) => {
     const { id } = req.params;
 
     const productoEncontrado = contenedor.getById(parseInt(id));
@@ -31,20 +36,20 @@ router.get("/:id", (req, res) => {
 
 
 // Ruta para guardar un producto.
-router.post("/", (req, res) => {
+router.post("/productos", (req, res) => {
     
     const productoParaGuardar = req.body;
 
-    const idProductoGuardado = contenedor.save({...productoParaGuardar});
+    contenedor.save({...productoParaGuardar});
 
-    res.status(200).json(`Producto Guardado. ID: ${idProductoGuardado}`);
+    res.redirect("/api");
 
 })
 
 
 
 // Ruta para actualizar un producto ya existente.
-router.put("/:id", (req, res) => {
+router.put("/productos/:id", (req, res) => {
     const {name, price} = req.body;
     const { id } = req.params;
 
@@ -57,7 +62,7 @@ router.put("/:id", (req, res) => {
 
 
 // Ruta para eliminar un producto por su id.
-router.delete("/:id", (req, res) => {
+router.delete("/productos/:id", (req, res) => {
     const { id } = req.params;
     
     const productoEncontrado = contenedor.getById(parseInt(id));
