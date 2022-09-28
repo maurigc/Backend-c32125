@@ -1,0 +1,29 @@
+extends layout 
+block tabla         
+        div(class="contenedor-main")
+            h1(class="titulo-tabla") Vista de productos
+
+            if todosProductos.length === 0
+                h1 No hay productos para mostrar    
+            else 
+                div 
+                    table 
+                        tr 
+                            th Nombre 
+                            th Precio 
+                            th Imagen 
+
+                        each productos in todosProductos 
+                            tr 
+                                td #{productos.name}
+                                td $ #{productos.price} 
+                                td(class="td-imagen") 
+                                    img(src= `${productos.url}` alt="imagen producto" width="40px" height="auto")
+                
+                
+            div(class="div-button")
+                a(href="/api")
+                    button(class="button-main") Ir a Guardar Productos 
+                        
+
+                        

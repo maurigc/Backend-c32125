@@ -1,0 +1,21 @@
+extends layout 
+block formulario 
+        div(class="contenedor-main")    
+            h1(class="titulo") Ingrese productos
+            
+            div(class="contenedor-form") 
+                form(action="/api/productos" method="post" class="form")
+                    label(for="name") Nombre:
+                    input(type="text" name="name" id="name" class="input-form")
+
+                    label(for="price") Precio:
+                    input(type="number" name="price" id="price" class="input-form")
+
+                    label(for="url") Url Imagen: 
+                    input(type="text" name="url" id="url" class="input-form")
+
+                    button(type="submit" class="button-form") Guardar
+            
+            div(class="div-button")
+                a(href="/api/productos")
+                    button(class="button-main") Ir a Vista de Productos        
