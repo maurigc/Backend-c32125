@@ -1,0 +1,42 @@
+{
+  "name": "backendjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "balanced-match": "^1.0.2",
+    "brace-expansion": "^2.0.1",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "fs.realpath": "^1.0.0",
+    "glob": "^8.0.3",
+    "graceful-fs": "^4.2.10",
+    "handlebars": "^4.7.7",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.4",
+    "minimatch": "^5.1.0",
+    "minimist": "^1.2.6",
+    "neo-async": "^2.6.2",
+    "once": "^1.4.0",
+    "socket.io": "^4.5.2",
+    "source-map": "^0.6.1",
+    "uglify-js": "^3.17.2",
+    "wordwrap": "^1.0.0",
+    "wrappy": "^1.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maurigc/Backend-c32125.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maurigc/Backend-c32125/issues"
+  },
+  "homepage": "https://github.com/maurigc/Backend-c32125#readme"
+}

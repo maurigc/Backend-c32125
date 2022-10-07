@@ -1,20 +1,14 @@
 <div>
-    <table>
+    <table id="tabla">
         <tr>
             <th>Nombre</th>
             <th>Precio</th>
             <th>Imagen</th>
         </tr>
+        <tbody id="tbody">
+
+        </tbody>
         
-        <% const productos = contenedor.getAll(); %>
-            
-        <% productos.forEach( product => { %>
-            <tr>
-                <td><%= product.name %></td>
-                <td>$<%= product.price %></td>
-                <td class="td-imagen"><img width="40px" height="auto" src= <%= product.url %> > </td>
-            </tr>
-        <% }) %>
                     
     </table>
 </div>
