@@ -2,7 +2,6 @@ const socket = io();
 
 socket.on("tabla", (producto) => {
     generarTabla(producto);
-    console.log(producto)
 })
 
 socket.on("mensaje", (mensaje) => {
@@ -12,13 +11,18 @@ socket.on("mensaje", (mensaje) => {
 
 // Funcion para mostrar mensaje en HTML
 const mostrarMensaje = (arrayMensajes) => {
-    const html = arrayMensajes.map((mensaje) => {
-        return(`
-            <div>
-                <strong class="mail">${mensaje.mail}</strong>[${mensaje.fecha}]:<em class="texto">${mensaje.texto}</em> </div>`)}).join(" ");
-        
-        
-        document.getElementById('contenedorMensajes').innerHTML = html;
+    if(arrayMensajes.length === 0){
+        document.getElementById('contenedorMensajes').innerHTML = "<h3>No hay mensajes para mostrar</h3>";
+    }else {
+        const html = arrayMensajes.map((mensaje) => {
+            return(`
+                <div>
+                    <strong class="mail">${mensaje.mail}</strong>[${mensaje.fecha}]:<em class="texto">${mensaje.texto}</em> </div>`)}).join(" ");
+            
+            
+            document.getElementById('contenedorMensajes').innerHTML = html;
+    }
+    
 }
 
 

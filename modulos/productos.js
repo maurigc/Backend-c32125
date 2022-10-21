@@ -1,6 +1,6 @@
 const express = require("express");
 const { Router } = express;
-const { contenedorUno } = require("../index.js");
+const { contenedorUno } = require("../contenedores/index.contenedor.js");
 
 
 const router = Router();
