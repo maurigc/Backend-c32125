@@ -1,4 +1,11 @@
 const config = {
+    mongoDb: {
+        url: "mongodb://localhost:27017/backend-32125",
+        options: {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }
+    },
     mysql: {
         client: "mysql",
         connection: {
@@ -17,4 +24,4 @@ const config = {
     }
 }
 
-module.exports = config;
+export { config };

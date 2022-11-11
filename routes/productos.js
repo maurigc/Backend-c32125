@@ -1,11 +1,13 @@
-const express = require("express");
-const { Router } = express;
-const { contenedorUno } = require("../contenedores/index.contenedor.js");
+import { Router } from "express";
+import { contenedorUno } from "../containers/index.contenedor.js";
 
 
 const router = Router();
 
-
+// Ruta de prueba usando Mock. 
+router.get("/productos-test", (req, res) => {
+    res.render("pages/indexTest", {contenedorUno})
+})
 
 router.get("/", (req, res) => {
     res.render("pages/index", {contenedorUno});
@@ -77,4 +79,4 @@ router.delete("/productos/:id", (req, res) => {
 })
 
 
-module.exports = router;
+export { router };

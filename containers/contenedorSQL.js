@@ -1,4 +1,5 @@
-const knex = require("knex");
+// const knex = require("knex");
+import knex from "knex";
 
 class Contenedor{
     constructor(config, nombreTabla){
@@ -85,6 +86,6 @@ class Contenedor{
 }
 
 
-module.exports = Contenedor;
+export default Contenedor;
 
 

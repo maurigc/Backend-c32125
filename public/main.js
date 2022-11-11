@@ -1,12 +1,27 @@
 const socket = io();
+// import { denormalize, schema } from "normalizr";
 
 socket.on("tabla", (producto) => {
     generarTabla(producto);
 })
 
 socket.on("mensaje", (mensaje) => {
+    // console.log(mensaje)
+    // // const mensajesDesnormallizados = denormalize(mensaje.result, schemaPost, mensaje.entities)
+    // // console.log(mensajesDesnormallizados)
     mostrarMensaje(mensaje);
 })
+
+// // Hacemos el esquema de las entidades
+// const schemaAuthor = new schema.Entity("authors", {}, {idAttribute: "mail"});
+
+// const schemaMensaje = new schema.Entity("post", {
+//      author: schemaAuthor 
+// }, {idAttribute: "id"});
+
+// const schemaPost = new schema.Entity("posts", { 
+//     mensajes: [ schemaMensaje ] 
+// }, {idAttribute: "id"});
 
 
 // Funcion para mostrar mensaje en HTML
@@ -17,7 +32,7 @@ const mostrarMensaje = (arrayMensajes) => {
         const html = arrayMensajes.map((mensaje) => {
             return(`
                 <div>
-                    <strong class="mail">${mensaje.mail}</strong>[${mensaje.fecha}]:<em class="texto">${mensaje.texto}</em> </div>`)}).join(" ");
+                    <strong class="mail">${mensaje.author.id}</strong>[${mensaje.author.alias}]:<em class="texto">${mensaje.text}</em><span><img src= ${mensaje.author.avatar} class="imagenMensaje"><span> </div>`)}).join(" ");
             
             
             document.getElementById('contenedorMensajes').innerHTML = html;
@@ -30,9 +45,25 @@ const mostrarMensaje = (arrayMensajes) => {
 const mandarMensaje = () => {
 
     const inputMail = document.getElementById("mail").value;
+    const inputNombre = document.getElementById("nombre").value;
+    const inputApellido = document.getElementById("apellido").value;
+    const inputEdad = document.getElementById("edad").value;
+    const inputAlias = document.getElementById("alias").value;
+    const inputAvatar = document.getElementById("avatar").value;
     const inputTexto = document.getElementById("texto").value;
 
-    socket.emit("nuevoMensaje", {mail: inputMail, texto: inputTexto, fecha: new Date().toLocaleString()});
+
+    socket.emit("nuevoMensaje", {
+        author: {
+            id: inputMail,
+            nombre: inputNombre,
+            apellido: inputApellido,
+            edad: inputEdad,
+            alias: inputAlias,
+            avatar: inputAvatar
+        },
+        text: inputTexto
+    });
 
     inputTexto = "";
         

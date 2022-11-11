@@ -1,4 +1,5 @@
-const fs = require("fs");
+// const fs = require("fs");
+import fs from "fs";
 
 // ////////////////////Clase contenedora para productos////////////////////
 class Contenedor {
@@ -183,8 +184,4 @@ class ContenedorMensajes {
 
 const contenedorUno = new Contenedor([]);
 
-const contenedorMensaje = new ContenedorMensajes("./mensajes.txt");
-
-
-
-module.exports = {contenedorUno, contenedorMensaje};
+export { contenedorUno };

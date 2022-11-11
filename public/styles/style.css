@@ -140,6 +140,11 @@ td{
     font-size: 15px;
 }
 
+.imagenMensaje{
+    width: 40px;
+    height: 40px;
+}
+
 .mail{
     font-weight: bold;
     color: rgb(42, 69, 249);
@@ -149,6 +154,13 @@ td{
     font-family: italic;
     color: rgb(16, 177, 10);
     font-weight: 900;
+}
+
+.form-mensajes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /**************** VISTA MOBILE ****************/

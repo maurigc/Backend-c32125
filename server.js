@@ -1,15 +1,20 @@
-const express = require("express");
-const { Server: HTTPServer } = require("http");
-const { Server: IOServer } = require("socket.io");
-const productos = require("./modulos/productos.js");
-const Contenedor = require("./contenedores/contenedorSQL.js");
-const config = require("./config.js");
+import express from "express";
+import { Server as HTTPServer } from "http";
+import { Server as IOServer} from "socket.io";
+import { router as productos } from "./routes/productos.js";
+import { normalizarMensajes } from "./scripts/normalizarMensajes.js";
+import { generarProductos } from "./scripts/crearProductos.js";
+import ContenedorMongodb from "./containers/contenedor.mongodb.js";
+import { mensajeSchema } from "./models/mensajes.model.js";
+
+import { config } from "./config.js";
+import Contenedor from "./containers/contenedorSQL.js";
 
 
 
 // Instanciado de conetenedor SQL
 const contenedorProductos = new Contenedor(config.mysql, "productos");
-const contenedorMensajes = new Contenedor(config.sqlite, "mensajes");
+const contenedorMensajes = new ContenedorMongodb("mensajes", mensajeSchema);
 
 
 // Instanciado de servidor
@@ -21,7 +26,7 @@ const io = new IOServer(httpServer);
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
-app.use(express.static(__dirname + "/public"));
+app.use(express.static("./public"));
 
 
 // Configuracion de motor de plantilla "Ejs"
@@ -40,7 +45,8 @@ io.on("connection", async (socket) => {
     console.log("conectado");
 
     // EVENTOS PARA PRODUCTOS
-    const todosProductos = await contenedorProductos.getAll();
+    // const todosProductos = await contenedorProductos.getAll();
+    const todosProductos = generarProductos();
     socket.emit("tabla", todosProductos);
 
     
@@ -54,6 +60,11 @@ io.on("connection", async (socket) => {
 
     // EVENTOS PARA MENSAJES
     const todosMensajes = await contenedorMensajes.getAll();
+    console.log(JSON.stringify(todosMensajes).length)
+    // console.log(todosMensajes)
+    const mensajesNormalizados = normalizarMensajes({id: "mensajes", todosMensajes});
+    console.log(JSON.stringify(mensajesNormalizados).length)
+
     socket.emit("mensaje", todosMensajes);
 
     socket.on("nuevoMensaje", async (data) => {
@@ -61,7 +72,7 @@ io.on("connection", async (socket) => {
         await contenedorMensajes.save(data);
 
         const arrayConMensajesNuevos = await contenedorMensajes.getAll();
-
+        console.log(arrayConMensajesNuevos)
         io.sockets.emit("mensaje", arrayConMensajesNuevos);
     }) 
     
