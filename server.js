@@ -7,6 +7,7 @@ import { generarProductos } from "./scripts/crearProductos.js";
 import ContenedorMongodb from "./containers/contenedor.mongodb.js";
 import { mensajeSchema } from "./models/mensajes.model.js";
 
+
 import { config } from "./config.js";
 import Contenedor from "./containers/contenedorSQL.js";
 
@@ -60,20 +61,20 @@ io.on("connection", async (socket) => {
 
     // EVENTOS PARA MENSAJES
     const todosMensajes = await contenedorMensajes.getAll();
-    console.log(JSON.stringify(todosMensajes).length)
-    // console.log(todosMensajes)
+    
     const mensajesNormalizados = normalizarMensajes({id: "mensajes", todosMensajes});
-    console.log(JSON.stringify(mensajesNormalizados).length)
-
-    socket.emit("mensaje", todosMensajes);
+    
+    socket.emit("mensaje", mensajesNormalizados);
 
     socket.on("nuevoMensaje", async (data) => {
 
         await contenedorMensajes.save(data);
 
         const arrayConMensajesNuevos = await contenedorMensajes.getAll();
-        console.log(arrayConMensajesNuevos)
-        io.sockets.emit("mensaje", arrayConMensajesNuevos);
+        
+        const mensajesNormalizados = normalizarMensajes({id: "mensajes", arrayConMensajesNuevos});
+       
+        io.sockets.emit("mensaje", mensajesNormalizados);
     }) 
     
     

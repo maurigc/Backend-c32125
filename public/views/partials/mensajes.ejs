@@ -1,5 +1,5 @@
 <div>
-    <h1>Centro de mensajes</h1>
+    <h1>Centro de mensajes. <span id="compresion"></span></h1>
 
     <div class="contenedor-mensajes" id="contenedorMensajes">
 
@@ -7,28 +7,28 @@
 
     <form class="form-mensajes" id="form-mensajes" onsubmit="return mandarMensaje(this)">
         <label class="label" for="mail">mail:</label>
-        <input type="text" class="inputMail" placeholder="Escribe tu mail" id="mail">
+        <input type="text" class="inputMensaje" placeholder="Escribe tu mail" id="mail">
 
         <label class="label" for="nombre">Nombre:</label>
-        <input type="text" class="inputNombre" placeholder="Nombre" id="nombre">
+        <input type="text" class="inputMensaje" placeholder="Nombre" id="nombre">
 
         <label class="label" for="apellido">Apellido:</label>
-        <input type="text" class="inputApellido" placeholder="Apellido" id="apellido">
+        <input type="text" class="inputMensaje" placeholder="Apellido" id="apellido">
 
         <label class="label" for="edad">Edad:</label>
-        <input type="text" class="inputEdad" placeholder="Edad" id="edad">
+        <input type="text" class="inputMensaje" placeholder="Edad" id="edad">
 
         <label class="label" for="alias">Alias:</label>
-        <input type="text" class="inputAlias" placeholder="Alias" id="alias">
+        <input type="text" class="inputMensaje" placeholder="Alias" id="alias">
 
         <label class="label" for="avatar">Avatar:</label>
-        <input type="text" class="inputAvatar" placeholder="Url de imagen" id="avatar">
+        <input type="text" class="inputMensaje" placeholder="Url de imagen" id="avatar">
 
 
         <div class="contenedor-chat">
             <input type="text" class="inputTexto" placeholder="Escribe tu mensaje..." id="text">
 
-            <button class="button-enviar" id="button-enviar">Enviar</button>
+            <button type="submit" class="button-form" id="button-enviar">Enviar</button>
         </div>
         
     </form>

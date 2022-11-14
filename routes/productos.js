@@ -2,15 +2,17 @@ import { Router } from "express";
 import { contenedorUno } from "../containers/index.contenedor.js";
 
 
+
 const router = Router();
 
 // Ruta de prueba usando Mock. 
 router.get("/productos-test", (req, res) => {
-    res.render("pages/indexTest", {contenedorUno})
+    res.render("pages/indexTest")
 })
 
-router.get("/", (req, res) => {
-    res.render("pages/index", {contenedorUno});
+router.get("/", (req, res) => { 
+
+    res.render("pages/index");
 })
 
 

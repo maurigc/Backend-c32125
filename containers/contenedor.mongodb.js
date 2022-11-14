@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { config } from "../config.js";
-import { mensajeSchema } from "../models/mensajes.model.js"
 
 class ContenedorMongodb {
     constructor(coleccion, schema){
@@ -63,18 +62,5 @@ class ContenedorMongodb {
     }
 }
 
-// const contenedor = new ContenedorMongodb("mensajes", mensajeSchema)
-
-// contenedor.save({
-//     author: {
-//         id: "jorge@mail.com",
-//         nombre: "jorge",
-//         apellido: "garcia",
-//         edad: 65,
-//         alias: "jorgito",
-//         avatar: "https://cdn0.iconfinder.com/data/icons/business-and-it-person/512/person12-512.png"
-//     },
-//     text: "buenas tardes gente!"
-// })
 
 export default ContenedorMongodb;

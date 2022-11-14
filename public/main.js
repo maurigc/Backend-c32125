@@ -1,27 +1,31 @@
 const socket = io();
-// import { denormalize, schema } from "normalizr";
+
 
 socket.on("tabla", (producto) => {
     generarTabla(producto);
 })
 
 socket.on("mensaje", (mensaje) => {
-    // console.log(mensaje)
-    // // const mensajesDesnormallizados = denormalize(mensaje.result, schemaPost, mensaje.entities)
-    // // console.log(mensajesDesnormallizados)
-    mostrarMensaje(mensaje);
+    
+    const mensajesDesnormallizados = normalizr.denormalize(mensaje.result, schemaPost , mensaje.entities)
+    
+    const porcentaje = parseInt(JSON.stringify(mensaje).length * 100 / JSON.stringify(mensajesDesnormallizados).length)
+    document.getElementById("compresion").innerText = `(Porcentaje de compresión: %${porcentaje})`;
+
+
+    mostrarMensaje(mensajesDesnormallizados.todosMensajes);
 })
 
-// // Hacemos el esquema de las entidades
-// const schemaAuthor = new schema.Entity("authors", {}, {idAttribute: "mail"});
+// Hacemos el esquema de las entidades
+const schemaAuthor = new normalizr.schema.Entity("authors", {}, {idAttribute: "mail"});
 
-// const schemaMensaje = new schema.Entity("post", {
-//      author: schemaAuthor 
-// }, {idAttribute: "id"});
+const schemaMensaje = new normalizr.schema.Entity("post", {
+     author: schemaAuthor 
+}, {idAttribute: "id"});
 
-// const schemaPost = new schema.Entity("posts", { 
-//     mensajes: [ schemaMensaje ] 
-// }, {idAttribute: "id"});
+const schemaPost = new normalizr.schema.Entity("posts", { 
+    mensajes: [ schemaMensaje ] 
+}, {idAttribute: "id"});
 
 
 // Funcion para mostrar mensaje en HTML
@@ -42,7 +46,7 @@ const mostrarMensaje = (arrayMensajes) => {
 
 
 // Funcion para enviar mensaje a través del chat
-const mandarMensaje = () => {
+const mandarMensaje = (e) => {
 
     const inputMail = document.getElementById("mail").value;
     const inputNombre = document.getElementById("nombre").value;
@@ -50,10 +54,9 @@ const mandarMensaje = () => {
     const inputEdad = document.getElementById("edad").value;
     const inputAlias = document.getElementById("alias").value;
     const inputAvatar = document.getElementById("avatar").value;
-    const inputTexto = document.getElementById("texto").value;
+    const inputTexto = document.getElementById("text").value;
 
-
-    socket.emit("nuevoMensaje", {
+    const mensaje = {
         author: {
             id: inputMail,
             nombre: inputNombre,
@@ -63,10 +66,9 @@ const mandarMensaje = () => {
             avatar: inputAvatar
         },
         text: inputTexto
-    });
+    }
 
-    inputTexto = "";
-        
+    socket.emit("nuevoMensaje", mensaje);     
 
     return false;
 }
