@@ -5,20 +5,28 @@
 </head>
 <body>
     <div class="contenedor-main">
-        <h1 class="titulo">Ingrese Producto</h1>
-
-        <%- include("../partials/formulario.ejs") %>
-
-        
-        <div>
-            <h1 class="titulo-tabla">Vista de Productos</h1>
+        <div class="contenedor-main">
+            <div class="contenedor-bienvenida">
+                <h1 class="titulo-bienvenida">Bienvenido <%= usuario %></h1>
+                
+                <button class="boton-logout" onclick="location.href='/api/auth/logout'">Logout</button>
+                   
+            </div>
+    
+            <h1 class="titulo">Ingrese Producto</h1>
+    
+            <%- include("../partials/formulario.ejs") %>
+    
             
-            <%- include("../partials/tabla.ejs") %>
-           
+            <div>
+                <h1 class="titulo-tabla">Vista de Productos</h1>
+                
+                <%- include("../partials/tabla.ejs") %>
+               
+            </div>
+    
+            <%- include("../partials/mensajes.ejs") %> 
         </div>
-
-        <%- include("../partials/mensajes.ejs") %> 
-    </div>
-    <script src="../../main.js"></script>
+        <script src="../../main.js"></script>
 </body>
 </html>

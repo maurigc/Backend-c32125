@@ -1,5 +1,5 @@
 .contenedor-main{
-    background-color: rgb(230, 229, 227);
+    background-color: rgb(192, 208, 198);
     width: 100%;
     height: 100%;
     border-radius: 5px;
@@ -60,14 +60,12 @@
 }
 
 label{
-    font-weight: bolder;
-    font-size: 20px;
+    
 }
 
 .input-form{
     border-radius: 4px;
     height: 25px;
-
     border: none;
 }
 
@@ -134,11 +132,12 @@ td{
     margin: 10px;
 }
 
-.label{
+label{
     margin-top: 10px;
     margin-bottom: 3px;
-    font-family: sans-serif;
-    font-size: 15px;
+    font-family: sans-serif;;
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 .inputTexto{
@@ -180,6 +179,84 @@ td{
     justify-content: flex-start;
     align-items: center;
     width: 50%;
+}
+/**************** ESTILO PARA BIENVENIDA ****************/
+.contenedor-bienvenida{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(84, 189, 55);
+}
+
+.titulo-bienvenida{
+    margin-left: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
+}
+
+.boton-logout{
+    border-radius: 5px;
+    background-color: rgb(234, 207, 51);
+    border: none;
+    height: 50px;
+    width: 80px;
+    margin-right: 20px;
+}
+
+.boton-logout:hover{
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+}
+
+
+/**************** ESTILO PARA DESPEDIDA ****************/
+.contenedor-despedida{
+    height: 100px;
+    border-radius: 10px;
+    background-color: rgb(180, 65, 65);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo-despedida{
+    margin-left: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
+    
+}
+
+/**************** ESTILO PARA LOGIN ****************/
+.form-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 10px;
+    padding: 20px;
+}
+
+.titulo-login{
+    font-family: sans-serif;
+    font-size: 40px;
+    margin-left: 30px;
+    color: rgb(45, 45, 238);
+}
+
+.input-login{
+   margin: 10px 0px;
+   border-radius: 4px;
+   height: 25px;
+   border: none;
+}
+
+.contenedor-login{
+    height: 30vh;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: rgb(192, 208, 198);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 /**************** VISTA MOBILE ****************/

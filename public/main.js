@@ -137,4 +137,3 @@ const generarTabla = (arrayProductos) => {
 
 
 
-

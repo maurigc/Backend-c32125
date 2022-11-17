@@ -1,25 +1,30 @@
 import { Router } from "express";
 import { contenedorUno } from "../containers/index.contenedor.js";
-
-
+import { authLogueo } from "../middlewares/authLogeo.js";
+import { generarProductos } from "../scripts/crearProductos.js";
 
 const router = Router();
 
 // Ruta de prueba usando Mock. 
 router.get("/productos-test", (req, res) => {
-    res.render("pages/indexTest")
+    const productosFaker = generarProductos(5);
+
+    res.render("pages/indexTest", { productosFaker: productosFaker })
 })
 
+// Ruta principal
 router.get("/", (req, res) => { 
 
-    res.render("pages/index");
+    res.render("pages/indexLogin");
 })
 
 
 // Rutas raiz de producto.
-router.get("/productos", (req, res) => {
+router.get("/productos", authLogueo, (req, res) => {
 
-    res.render("pages/listaProductos", {contenedorUno})
+    const usuario = req.session.usuario;
+
+    res.render("pages/index", { usuario: usuario })
     
 })
 

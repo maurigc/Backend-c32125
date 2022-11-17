@@ -1,19 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <%- include("../partials/head.ejs") %>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="../../styles/style.css">
+    <title>Test</title>
 </head>
 <body>
     <div class="contenedor-main">
-       
-        <div>
-            <h1 class="titulo-tabla">Vista de Productos</h1>
-            
-            <%- include("../partials/tabla.ejs") %>
-           
-        </div>
+        <div class="contenedor-main">
+            <div>
+                <h1 class="titulo-tabla">Vista de Productos</h1>
 
-    </div>
-    <script src="../../main.js"></script>
+                <div>
+                    <table id="tabla">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Imagen</th>
+                        </tr>      
+                        
+                        <%  productosFaker.forEach( p => {  %>
+                            <tr>
+                                <td><%= p.name %> </td>
+                                <td><%= p.price %> </td>
+                                <td>
+                                    <img width="40" height="40" src= "<%= p.url %>">
+                                </td>
+                            </tr>    
+                        <%  })  %>
+                        
+                        
+                           
+                            
+                    </table>
+                </div>
+                
+            
+               
+            </div>
+        </div>
+    </div>    
+    
+
+    <script src="../../mainTest.js" ></script>
 </body>
 </html>
