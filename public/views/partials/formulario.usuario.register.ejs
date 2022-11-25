@@ -1,0 +1,16 @@
+<div class="contenedor-login">
+    <div>
+        <h1 class="titulo-login">Registrarse</h1>
+        <h4 class="titulo-secundario">Si ya está registrado, debe ir a <spam><a href="/api/">iniciar sesión</a></spam></h4>
+    </div>
+    
+
+    <form class="form-login" action="/api/auth/signup" method="post">
+        <label  for="username">Ingrese su usuario:</label>
+        <input class="input-login" type="text" name="username" required>
+
+        <label  for="password">Ingrese su contraseña:</label>
+        <input class="input-login" type="text" name="password" required>
+        <button class="button-form">Registrarse</button>
+    </form>
+</div>

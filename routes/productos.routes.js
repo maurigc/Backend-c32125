@@ -2,6 +2,7 @@ import { Router } from "express";
 import { contenedorUno } from "../containers/index.contenedor.js";
 import { authLogueo } from "../middlewares/authLogeo.js";
 import { generarProductos } from "../scripts/crearProductos.js";
+import { checkAuthenticated } from "../middlewares/checkAuthenticated.js";
 
 const router = Router();
 
@@ -20,11 +21,11 @@ router.get("/", (req, res) => {
 
 
 // Rutas raiz de producto.
-router.get("/productos", authLogueo, (req, res) => {
+router.get("/productos", checkAuthenticated, (req, res) => {
 
-    const usuario = req.session.usuario;
+    const username = req.session.usuario;
 
-    res.render("pages/index", { usuario: usuario })
+    res.render("pages/index", { usuario: username })
     
 })
 

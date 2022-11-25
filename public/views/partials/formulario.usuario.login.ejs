@@ -1,0 +1,17 @@
+<div class="contenedor-login">
+    <div>
+        <h1 class="titulo-login">Iniciar sesión</h1>
+        <h4 class="titulo-secundario">Ingrese su usuario y contraseña para acceder, en caso de no tener cuenta debe <spam><a href="/api/auth/signup">registrarse</a></spam>.</h4>
+    </div>
+    
+    <form class="form-login" action="/api/auth/login" method="post">
+        <label  for="username">Ingrese su usuario:</label>
+        <input class="input-login" type="text" name="username" required>
+
+        <label  for="password">Ingrese su contraseña:</label>
+        <input class="input-login" type="text" name="password" required>
+        <button class="button-form">Entrar</button>
+    </form>
+
+    
+</div>

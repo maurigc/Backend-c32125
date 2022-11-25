@@ -3,33 +3,35 @@ import { Server as HTTPServer } from "http";
 import { Server as IOServer} from "socket.io";
 import { router as productos } from "./routes/productos.routes.js";
 import { router as usuario } from "./routes/usuario.routes.js";
+import { router as fail } from "./routes/fail.routes.js";
+import cookieParser from "cookie-parser";
 import { normalizarMensajes } from "./scripts/normalizarMensajes.js";
 import { generarProductos } from "./scripts/crearProductos.js";
-import ContenedorMongodb from "./containers/contenedor.mongodb.js";
-import { mensajeSchema } from "./models/mensajes.model.js";
+import MensajesDao from "./DAOs/mensajes.dao.js";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import { passport } from "./middlewares/passport.js";
 
 import { config } from "./config.js";
 import Contenedor from "./containers/contenedorSQL.js";
 
 
-
+//_________________________________________________________________________________________________________________________
 // Instanciado de conetenedor SQL
 const contenedorProductos = new Contenedor(config.mysql, "productos");
-const contenedorMensajes = new ContenedorMongodb("mensajes", mensajeSchema);
-
-
+const contenedorMensajes = new MensajesDao();
+//_________________________________________________________________________________________________________________________
 // Instanciado de servidor
 const app = express();
 const httpServer = new HTTPServer(app);
 const io = new IOServer(httpServer);
 
-
+//_________________________________________________________________________________________________________________________
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
 app.use(express.static("./public"));
+app.use(cookieParser())
 app.use(session({
     secret: "mauricio",
     store: MongoStore.create({
@@ -42,7 +44,10 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+app.use(passport.initialize());
+app.use(passport.session());
 
+//_________________________________________________________________________________________________________________________
 // Configuracion de motor de plantilla "Ejs"
 app.set("views", "./public/views");
 app.set("view engine", "ejs");
@@ -53,7 +58,7 @@ httpServer.listen(PORT, () => {
     console.log(`El servidor esta funcionando en el puerto: ${PORT}`);
 })
 
-
+//_________________________________________________________________________________________________________________________
 // Socket
 io.on("connection", async (socket) => {
     console.log("conectado");
@@ -98,4 +103,4 @@ io.on("connection", async (socket) => {
 // Ruta de productos
 app.use("/api", productos);
 app.use("/api/auth", usuario);
-
+app.use("/api/fail", fail)
