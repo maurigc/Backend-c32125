@@ -1,21 +1,35 @@
 import express from "express";
 import { Server as HTTPServer } from "http";
 import { Server as IOServer} from "socket.io";
+// ____________________________________________________________
+// *********************import Rutas***************************
 import { router as productos } from "./routes/productos.routes.js";
 import { router as usuario } from "./routes/usuario.routes.js";
 import { router as fail } from "./routes/fail.routes.js";
-import cookieParser from "cookie-parser";
+import { router as test } from "./routes/test.routes.js";
+// ____________________________________________________________
+// *********************import Scripts*************************
 import { normalizarMensajes } from "./scripts/normalizarMensajes.js";
 import { generarProductos } from "./scripts/crearProductos.js";
+// ____________________________________________________________
+// *********************import Contenedores********************
 import MensajesDao from "./DAOs/mensajes.dao.js";
+import Contenedor from "./containers/contenedorSQL.js";
+import { config } from "./config.js";
+// ____________________________________________________________
+// *********************import Session*************************
 import session from "express-session";
 import MongoStore from "connect-mongo";
+// ____________________________________________________________
+// *********************import Minimist************************
+import minimist from "minimist";
+const args = minimist(process.argv.slice(2));
+
 import { passport } from "./middlewares/passport.js";
-
-import { config } from "./config.js";
-import Contenedor from "./containers/contenedorSQL.js";
+import dotenv from "dotenv"
 
 
+dotenv.config()
 //_________________________________________________________________________________________________________________________
 // Instanciado de conetenedor SQL
 const contenedorProductos = new Contenedor(config.mysql, "productos");
@@ -31,11 +45,10 @@ const io = new IOServer(httpServer);
 app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
 app.use(express.static("./public"));
-app.use(cookieParser())
 app.use(session({
-    secret: "mauricio",
+    secret: process.env.SECRET_WORD,
     store: MongoStore.create({
-        mongoUrl: "mongodb+srv://mauricio:mg37617746@cluster0.46j6cjs.mongodb.net/?retryWrites=true&w=majority",
+        mongoUrl: process.env.URL_MONGO_ATLAS,
         mongoOptions: config.mongoDb.options
     }),
     cookie: {
@@ -53,10 +66,18 @@ app.set("views", "./public/views");
 app.set("view engine", "ejs");
 
 
-const PORT = 8080;
+const PORT = args.PORT || 8080;
 httpServer.listen(PORT, () => {
     console.log(`El servidor esta funcionando en el puerto: ${PORT}`);
 })
+//_________________________________________________________________________________________________________________________
+// Ruta de productos
+app.use("/api", productos);
+app.use("/api/auth", usuario);
+app.use("/api/fail", fail)
+app.use("/api/test", test)
+
+
 
 //_________________________________________________________________________________________________________________________
 // Socket
@@ -100,7 +121,3 @@ io.on("connection", async (socket) => {
 })
 
 
-// Ruta de productos
-app.use("/api", productos);
-app.use("/api/auth", usuario);
-app.use("/api/fail", fail)

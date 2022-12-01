@@ -270,6 +270,34 @@ label{
     justify-content: space-evenly;
 }
 
+/*  */
+
+.contenedor-titulo{
+    text-align: center;
+    margin: 10px;
+}
+
+.titulo-info{
+    color: #232323;
+    font-size: 40px;
+
+}
+
+.subtitulo-info{
+    padding-left: 10px;
+    color: #7C9473;
+    font-size: 30px;
+}
+
+.info{
+    padding-left: 30px;
+    color: #717370;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+
 /**************** VISTA MOBILE ****************/
 @media only screen and (max-width: 768px){
     .contenedor-main{

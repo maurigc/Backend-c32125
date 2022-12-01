@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { contenedorUno } from "../containers/index.contenedor.js";
-import { authLogueo } from "../middlewares/authLogeo.js";
 import { generarProductos } from "../scripts/crearProductos.js";
 import { checkAuthenticated } from "../middlewares/checkAuthenticated.js";
 

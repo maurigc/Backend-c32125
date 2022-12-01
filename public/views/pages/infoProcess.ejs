@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="../../styles/style.css">
+    <title>Info</title>
+</head>
+<body>
+    <div class="contenedor-main">
+        <div class="contenedor-titulo">
+            <h1 class="titulo-info">Info Process</h1>
+        </div>
+        
+        <h2 class="subtitulo-info">Argumentos de entrada: <span class="info"><%= args %></span></h2>
+        <hr style="width: 100%;">
+        <h2 class="subtitulo-info">Sistema Operativo: <span class="info"><%= so %></span></h2>
+        <hr style="width: 100%;">
+        <h2 class="subtitulo-info">Versión: <span class="info"><%= version %></span></h2>
+        <hr style="width: 100%;">
+        <h2 class="subtitulo-info">Memoria total reservada: <span class="info"><%= memoria %></span></h2>
+        <hr style="width: 100%;">
+        <h2 class="subtitulo-info">Path de ejecución: <span class="info"><%= path %></span></h2>
+        <hr style="width: 100%;">
+        <h2 class="subtitulo-info">PID: <span class="info"><%= pid %></span></h2>
+        <hr style="width: 100%;">
+        <h2 class="subtitulo-info">Carpeta de proyecto: <span class="info"><%= cwd %></span></h2>
+    </div>    
+    
+
+    <script src="../../mainTest.js" ></script>
+</body>
+</html>

@@ -1,6 +1,9 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 const config = {
     mongoDb: {
-        url: "mongodb://localhost:27017/backend-32125",
+        url: process.env.URL_MONGO_LOCAL,
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true
