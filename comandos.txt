@@ -1,0 +1,50 @@
+*************** COMANDOS NODE *******************
+
+node server.js --MODO fork --PORT 8081
+
+node server.js --MODO cluster --PORT 8082
+
+node server.js --MODO --PORT 8000
+
+
+*************** COMANDOS FOREVER *******************
+
+forever start server.js --MODO fork --PORT 8081
+
+forever start server.js --MODO cluster --PORT 8082
+
+forever list
+
+forever stopall
+
+
+*************** COMANDOS PM2 *******************
+
+pm2 start server.js --name serverFork --watch -- --MODO fork --PORT 8081
+
+pm2 start server.js --name serverCluster --watch -- --MODO cluster --PORT 8082
+
+pm2 list
+
+pm2 stop serverFork
+
+pm2 stop serverCluster
+
+
+///////////////////////////// COMANDOS NGINX ///////////////////////////////////////
+
+
+pm2 start server.js --name server1 --watch -- --MODO cluster --PORT 8081
+
+pm2 start server.js --name server2 --watch -- --PORT 8080
+
+_____________________________________________________________
+
+
+pm2 start server.js --name server1 --watch -- --PORT 8082
+
+pm2 start server.js --name server2 --watch -- --PORT 8083
+
+pm2 start server.js --name server3 --watch -- --PORT 8084
+
+pm2 start server.js --name server4 --watch -- --PORT 8085

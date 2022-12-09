@@ -1,13 +1,12 @@
 import { Router } from "express";
 import { fork } from "child_process";
 
-
 const router = Router();
 
 
 router.get("/random", (req, res) => {
     const cantidad = req.query.cant
-   
+
     const calculoRandom = fork("./scripts/calculoRandom.js");
 
     calculoRandom.send(!cantidad ? 100000000 : cantidad);
@@ -23,6 +22,7 @@ router.get("/info", (req, res) => {
         args: process.argv.slice(2),
         cwd: process.cwd(),
         pid: process.pid,
+        numProcess: process.env.NUMBER_OF_PROCESSORS,
         so: process.platform,
         version: process.version,
         memoria: process.memoryUsage().rss,
