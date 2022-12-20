@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { passport } from "../middlewares/passport.js";
+import { logConsola } from "../scripts/logger.js";
 
 const router = Router();
 
@@ -33,7 +34,13 @@ router.get("/logout", (req, res) => {
 //__________________________________________________________________________________________________
 //Ruta para registrarse.
 router.get("/signup", (req, res) => {
-    res.render("pages/indexRegister");
+    try {
+        res.render("pages/indexRegister");
+        
+    } catch (error) {
+        logConsola.info(error);
+        res.status(404).json(error);
+    }
 })
 
 //__________________________________________________________________________________________________

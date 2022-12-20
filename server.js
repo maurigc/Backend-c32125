@@ -9,6 +9,8 @@ import os from "os";
 import minimist from "minimist";
 const args = minimist(process.argv.slice(2));
 
+import { logConsola } from "./scripts/logger.js";
+
 
 //_________________________________________________________________________________________________________________________
 // Instanciado de servidor
@@ -24,11 +26,11 @@ const numCPUs = os.cpus().length;
 if (args.MODO === "fork") {
     try {
         httpServer.listen(PORT, () => {
-            console.log(`El servidor esta funcionando en el puerto: ${PORT}`);
-            console.log(`en el proceso ${process.pid}`)
+            logConsola.info(`El servidor esta funcionando en el puerto: ${PORT}`);
+            logConsola.info(`en el proceso ${process.pid}`)
         })
     } catch (error) {
-        console.log(error);
+        logConsola.info(error);
     }
     
 } else if (args.MODO === "cluster"){
@@ -40,22 +42,22 @@ if (args.MODO === "fork") {
             }
         } else {
             httpServer.listen(PORT, () => {
-                console.log(`El servidor esta funcionando en el puerto: ${PORT}`);
-                console.log(`en el proceso ${process.pid}`)
+                logConsola.info(`El servidor esta funcionando en el puerto: ${PORT}`);
+                logConsola.info(`en el proceso ${process.pid}`)
             })
         }
     } catch (error) {
-        console.log(error);
+        logConsola.info(error);
     }
    
 }else{
     try {
         httpServer.listen(PORT, () => {
-            console.log(`El servidor esta funcionando en el puerto: ${PORT}`);
-            console.log(`en el proceso ${process.pid}`)
+            logConsola.info(`El servidor esta funcionando en el puerto: ${PORT}`);
+            logConsola.info(`en el proceso ${process.pid}`)
         })
     } catch (error) {
-        console.log(error)
+        logConsola.info(error)
     }
     
 }

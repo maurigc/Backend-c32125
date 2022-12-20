@@ -7,6 +7,8 @@ import { router as test } from "./routes/test.routes.js";
 // *********************import Session*************************
 import session from "express-session";
 import MongoStore from "connect-mongo";
+// *********************import Gzip*************************
+import compression from "compression";
 // ************************************************************
 import { config } from "./config.js";
 import dotenv from "dotenv";
@@ -38,7 +40,7 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(compression());
 
 
 //_________________________________________________________________________________________________________________________

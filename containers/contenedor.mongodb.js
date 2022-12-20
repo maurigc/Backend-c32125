@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { config } from "../config.js";
+import { logError, logConsola } from "../scripts/logger.js";
 
 class ContenedorMongodb {
     constructor(coleccion, schema){
@@ -11,9 +12,9 @@ class ContenedorMongodb {
         try {
             await mongoose.connect(config.mongoDb.url, config.mongoDb.options);
 
-            console.log("Base de datos conectada.");
+            logConsola.info("Base de datos conectada.");
         } catch (error) {
-            console.log(error);
+            logError.error(error);
         }
         
     }
@@ -26,7 +27,7 @@ class ContenedorMongodb {
 
             await newItem.save();
         } catch (error) {
-            console.log(error);
+            logError.error(error);
         }
         
     }
@@ -36,7 +37,7 @@ class ContenedorMongodb {
         try {
             return await this.coleccion.find();
         } catch (error) {
-            console.log(error);
+            logError.error(error);
         }
         
     }
@@ -47,7 +48,7 @@ class ContenedorMongodb {
             return await this.coleccion.find({_id: {$eq: idItem}});
     
         } catch (error) {
-            console.log(error);
+            logError.error(error);
         }
     }  
     //_____________________________________________________________
@@ -56,7 +57,7 @@ class ContenedorMongodb {
         try {
             await this.coleccion.deleteOne({_id: {$eq: idItem}});
         } catch (error) {
-            console.log(error);
+            logError.error(error);
         }
         
     }

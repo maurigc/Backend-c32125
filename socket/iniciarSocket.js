@@ -6,6 +6,8 @@ import { config } from "../config.js";
 import { normalizarMensajes } from "../scripts/normalizarMensajes.js";
 import { generarProductos } from "../scripts/crearProductos.js";
 
+import { logConsola, logError } from "../scripts/logger.js";
+
 
 //_________________________________________________________________________________________________________________________
 // Instanciado de conetenedores
@@ -15,7 +17,7 @@ const contenedorMensajes = new MensajesDao();
 
 const iniciarSocket = (io) => {
     io.on("connection", async (socket) => {
-        console.log("conectado");
+        logConsola.info("Conectado");
     
         // EVENTOS PARA PRODUCTOS
         // const todosProductos = await contenedorProductos.getAll();
@@ -24,11 +26,16 @@ const iniciarSocket = (io) => {
     
         
         socket.on("nuevoProducto",async (data) => {
-            await contenedorProductos.save(data);
-    
-            const productosActualizado = await contenedorProductos.getAll();
-    
-            io.sockets.emit("tabla", productosActualizado);
+            try {
+                await contenedorProductos.save(data);
+        
+                const productosActualizado = await contenedorProductos.getAll();
+        
+                io.sockets.emit("tabla", productosActualizado);
+                
+            } catch (error) {
+                logError.error(error);
+            }
         })
     
         // EVENTOS PARA MENSAJES
@@ -39,14 +46,18 @@ const iniciarSocket = (io) => {
         socket.emit("mensaje", mensajesNormalizados);
     
         socket.on("nuevoMensaje", async (data) => {
-    
-            await contenedorMensajes.save(data);
-    
-            const arrayConMensajesNuevos = await contenedorMensajes.getAll();
-            
-            const mensajesNormalizados = normalizarMensajes({id: "mensajes", arrayConMensajesNuevos});
-           
-            io.sockets.emit("mensaje", mensajesNormalizados);
+            try {
+                await contenedorMensajes.save(data);
+        
+                const arrayConMensajesNuevos = await contenedorMensajes.getAll();
+                
+                const mensajesNormalizados = normalizarMensajes({id: "mensajes", arrayConMensajesNuevos});
+               
+                io.sockets.emit("mensaje", mensajesNormalizados);
+                
+            } catch (error) {
+                logError.error(error);
+            }
         }) 
         
         

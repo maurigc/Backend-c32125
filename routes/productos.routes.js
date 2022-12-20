@@ -2,6 +2,7 @@ import { Router } from "express";
 import { contenedorUno } from "../containers/index.contenedor.js";
 import { generarProductos } from "../scripts/crearProductos.js";
 import { checkAuthenticated } from "../middlewares/checkAuthenticated.js";
+import { logConsola, logWarn } from "../scripts/logger.js";
 
 const router = Router();
 
@@ -13,75 +14,112 @@ router.get("/productos-test", (req, res) => {
 })
 
 // Ruta principal
-router.get("/", (req, res) => { 
-
-    res.render("pages/indexLogin");
+router.get("/", async (req, res) => { 
+    try {
+        res.render("pages/indexLogin");
+    } catch (error) {
+        logConsola.info(error);
+        res.status(404).json(error)
+    }
+    
 })
 
 
 // Rutas raiz de producto.
-router.get("/productos", checkAuthenticated, (req, res) => {
+router.get("/productos", checkAuthenticated, async (req, res) => {
+    try {
+        const username = req.session.usuario;
 
-    const username = req.session.usuario;
-
-    res.render("pages/index", { usuario: username })
+        res.render("pages/index", { usuario: username });
+    } catch (error) {
+        logConsola.info(error);
+        res.status(404).json(error);
+    }
+    
     
 })
 
 
 
 // Ruta para obtener producto por id.
-router.get("/productos/:id", (req, res) => {
-    const { id } = req.params;
+router.get("/productos/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
 
-    const productoEncontrado = contenedorUno.getProductById(parseInt(id));
+        const productoEncontrado = contenedorUno.getProductById(parseInt(id));
 
-    productoEncontrado ? res.status(200).json(productoEncontrado) : res.status(400).json({error: `El producto con ID:${id} no se encontró`});
+        if(!productoEncontrado){
+            logWarn.warn(`producto con ID: ${id} inexistente.`)
+            res.status(400).json({error: `El producto con ID:${id} no se encontró`});
+        }else{
+            res.status(200).json(productoEncontrado)
+        } 
+    } catch (error) {
+        logConsola.info(error);
+    }
+    
     
 })
 
 
 
 // Ruta para guardar un producto.
-router.post("/productos", (req, res) => {
+router.post("/productos", async (req, res) => {
+    try {
+        const productoParaGuardar = req.body;
+
+        contenedorUno.saveProduct({...productoParaGuardar});
+
+        res.redirect("/api");
+    } catch (error) {
+        logConsola.info(error);
+        res.status(404).json(error);
+    }
     
-    const productoParaGuardar = req.body;
-
-    contenedorUno.saveProduct({...productoParaGuardar});
-
-    res.redirect("/api");
 
 })
 
 
 
 // Ruta para actualizar un producto ya existente.
-router.put("/productos/:id", (req, res) => {
-    const {name, price} = req.body;
-    const { id } = req.params;
+router.put("/productos/:id", async (req, res) => {
+    try {
+        const {name, price} = req.body;
+        const { id } = req.params;
 
-    contenedorUno.updateProduct(parseInt(id), name, price);
+        contenedorUno.updateProduct(parseInt(id), name, price);
 
-    res.status(200).json("put hecho");
+        res.status(200).json("El producto se actualizó con éxito.");
+    } catch (error) {
+        logConsola.info(error);
+        res.status(404).json(error);
+    }
+    
     
 })
 
 
 
 // Ruta para eliminar un producto por su id.
-router.delete("/productos/:id", (req, res) => {
-    const { id } = req.params;
+router.delete("/productos/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
     
-    const productoEncontrado = contenedorUno.getProductById(parseInt(id));
+        const productoEncontrado = contenedorUno.getProductById(parseInt(id));
     
-    if(!productoEncontrado){
-        res.status(400).json(`El producto con ID: ${id} no se encontrò`);
+        if(!productoEncontrado){
+            logWarn.warn(`producto con ID: ${id} inexistente.`)
+            res.status(400).json(`El producto con ID: ${id} no se encontrò`);
 
-    }else{
-        contenedorUno.deleteProductById(parseInt(id));
+        }else{
+            contenedorUno.deleteProductById(parseInt(id));
 
-        res.status(200).json(`Archivo eliminado con exito`);
+            res.status(200).json(`Archivo eliminado con exito`);
+        }
+    } catch (error) {
+        logConsola.info(error)
     }
+    
     
 })
 
