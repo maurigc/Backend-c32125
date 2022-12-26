@@ -4,7 +4,7 @@ import { logConsola } from "../scripts/logger.js";
 const router = Router();
 
 
-router.get("/loginError", async (req, res) => {
+router.get("/loginError", (req, res) => {
     try {
         res.render("pages/errorLogin");
     } catch (error) {

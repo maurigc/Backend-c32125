@@ -33,6 +33,8 @@ const mostrarMensaje = (arrayMensajes) => {
     if(arrayMensajes.length === 0){
         document.getElementById('contenedorMensajes').innerHTML = "<h3>No hay mensajes para mostrar</h3>";
     }else {
+        // document.getElementById('contenedorMensajes').innerHTML = "";
+
         const html = arrayMensajes.map((mensaje) => {
             return(`
                 <div>

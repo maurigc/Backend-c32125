@@ -10,17 +10,20 @@ const ContenedorUsuarios = new UsuariosDao();
 //Middleware para login
 passport.use("login", new LocalStrategy( async(username, password, done) => {
     const usuarios = await ContenedorUsuarios.getAll();
-
-    const user = usuarios.find(user => user.username === username)
+    
+    const user = usuarios.find(user => user.username === username);
+    
 
     if(user){
         const validarPassword = comparar(user, password); 
-
+        console.log("hasta aca llego")
         if(validarPassword){
             return done(null, user);
         }else{
             return done(null, false);
         } 
+    }else{
+        return done(null, false);
     }
 } ))
 

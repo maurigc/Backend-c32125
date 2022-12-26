@@ -3,7 +3,7 @@ dotenv.config();
 
 const config = {
     mongoDb: {
-        url: process.env.URL_MONGO_LOCAL,
+        url: process.env.URL_MONGO_ATLAS,
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true
