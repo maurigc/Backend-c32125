@@ -10,7 +10,8 @@ import minimist from "minimist";
 const args = minimist(process.argv.slice(2));
 
 import { logConsola } from "./scripts/logger.js";
-
+import dotenv from "dotenv";
+dotenv.config();
 
 //_________________________________________________________________________________________________________________________
 // Instanciado de servidor
@@ -19,7 +20,7 @@ const io = new IOServer(httpServer);
 
 //_________________________________________________________________________________________________________________________
 // Puerto
-const PORT = args.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 const numCPUs = os.cpus().length;
 
