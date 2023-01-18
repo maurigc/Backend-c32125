@@ -16,7 +16,6 @@ passport.use("login", new LocalStrategy( async(username, password, done) => {
 
     if(user){
         const validarPassword = comparar(user, password); 
-        console.log("hasta aca llego")
         if(validarPassword){
             return done(null, user);
         }else{
