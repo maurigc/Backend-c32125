@@ -4,10 +4,6 @@ import { logConsola, logError } from "../scripts/logger.js";
 import { emitirNuevoProductos } from "../controller/productos.controller.js"
 import { guardarYNormalizarMsj, obtenerYNormalizarMsj } from "../service/mensaje.service.js";
 
-// import Contenedor from "../containers/contenedorSQL.js";
-// import { config } from "../config.js";
-// const contenedorProductos = new Contenedor(config.mysql, "productos");
-
 
 const iniciarSocket = (io) => {
     io.on("connection", async (socket) => {

@@ -1,15 +1,14 @@
 import passport from "passport";
 import passportLocal from "passport-local";
-import UsuariosDao from "../DAOs/usuarios.dao.js";
+import { usuariosDao } from "../factory/factory.js";
 import { comparar, encriptar } from "../scripts/encriptarContraseñas.js";
 
 const LocalStrategy = passportLocal.Strategy
 
-const ContenedorUsuarios = new UsuariosDao();
 
 //Middleware para login
 passport.use("login", new LocalStrategy( async(username, password, done) => {
-    const usuarios = await ContenedorUsuarios.getAll();
+    const usuarios = await usuariosDao.getAll();
     
     const user = usuarios.find(user => user.username === username);
     
@@ -29,8 +28,8 @@ passport.use("login", new LocalStrategy( async(username, password, done) => {
 
 // Middleware para registrarse.
 passport.use("register", new LocalStrategy( { passReqToCallback: true }, async(req, username, password, done) => {
-    const usuarios = await ContenedorUsuarios.getAll();
-
+    const usuarios = await usuariosDao.getAll();
+    
     const usuarioEncontrado = usuarios.find(user => user.username === username)
    
 
@@ -43,7 +42,7 @@ passport.use("register", new LocalStrategy( { passReqToCallback: true }, async(r
             password: encriptar(password),
         }
 
-        await ContenedorUsuarios.save(nuevoUsuario);
+        await usuariosDao.save(nuevoUsuario);
 
         return done(null, nuevoUsuario);
     }
@@ -52,11 +51,13 @@ passport.use("register", new LocalStrategy( { passReqToCallback: true }, async(r
 
 
 passport.serializeUser( (user, done) => {
+    
     done(null, user._id);
 })
 
 passport.deserializeUser( async(id, done) => {
-    let user = await ContenedorUsuarios.getById(id);
+    let user = await usuariosDao.getById(id);
+    
     done(null, user)
 })
 

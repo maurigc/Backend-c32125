@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "author": {
+      "id": "mauricio@mail.com",
+      "nombre": "mauricio",
+      "apellido": "garcia",
+      "edad": 29,
+      "alias": "maurigc",
+      "avatar": "https://cdn0.iconfinder.com/data/icons/business-and-it-person/512/person3-512.png"
+    },
+    "text": "hola"
+  },
+  {
+    "id": 2,
+    "author": {
+      "id": "lucia@mail.com",
+      "nombre": "lucia",
+      "apellido": "garcia",
+      "edad": 24,
+      "alias": "luci",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/business-persons-flat/512/person_7-512.png"
+    },
+    "text": "hola, como andas?"
+  },
+  {
+    "id": 3,
+    "author": {
+      "id": "jorge@mail.com",
+      "nombre": "jorge",
+      "apellido": "garcia",
+      "edad": 65,
+      "alias": "jorgito",
+      "avatar": "https://cdn0.iconfinder.com/data/icons/business-and-it-person/512/person12-512.png"
+    },
+    "text": "buenas tardes gente!"
+  }
+]

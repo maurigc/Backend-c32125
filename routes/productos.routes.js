@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { checkAuthenticated } from "../middlewares/checkAuthenticated.js";
-import { getProductos, getProductsByID, postProductos, putProductos, deleteProductos, getMain, getTest } from "../controller/productos.controller.js";
+import { getProductos, getProductsByID, postProductos, deleteProductos, getMain, getTest } from "../controller/productos.controller.js";
 
 const router = Router();
 
@@ -30,8 +30,8 @@ router.post("/productos", postProductos)
 
 
 
-// Ruta para actualizar un producto ya existente.
-router.put("/productos/:id", putProductos)
+// // Ruta para actualizar un producto ya existente.
+// router.put("/productos/:id", putProductos)
 
 
 

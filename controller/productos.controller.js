@@ -1,6 +1,6 @@
 import { logConsola, logWarn, logError } from "../scripts/logger.js";
 import { generarProductos } from "../scripts/crearProductos.js"; 
-import { obtenerUser, buscarProductoPorId, guardarProducto, actualizarProducto, eliminarProducto, guardarYActualizar } from "../service/productos.service.js";
+import { obtenerUser, buscarProductoPorId, guardarProducto, eliminarProducto, guardarYActualizar } from "../service/productos.service.js";
 
 
 const getTest = (req, res) => {
@@ -70,20 +70,20 @@ const postProductos = async (req, res) => {
 }
 
 
-const putProductos = async (req, res) => {
-    try {
-        const { id } = req.params;
+// const putProductos = async (req, res) => {
+//     try {
+//         const { id } = req.params;
 
-        await actualizarProducto(parseInt(id), req.body);
+//         await actualizarProducto(parseInt(id), req.body);
 
-        res.status(200).json("El producto se actualizó con éxito.");
-    } catch (error) {
-        logConsola.info(error);
-        res.status(404).json(error);
-    }
+//         res.status(200).json("El producto se actualizó con éxito.");
+//     } catch (error) {
+//         logConsola.info(error);
+//         res.status(404).json(error);
+//     }
     
     
-}
+// }
 
 
 const deleteProductos = async (req, res) => {
@@ -122,8 +122,7 @@ export  {
     getMain, 
     getProductos, 
     getProductsByID, 
-    postProductos, 
-    putProductos, 
+    postProductos,  
     deleteProductos, 
     emitirNuevoProductos
 }
