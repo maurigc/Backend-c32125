@@ -2,7 +2,7 @@ let mensajesDao
 let usuariosDao
 let productosDao
 
-switch ("archivo") {
+switch ("mongodb") {
     case 'sql':
         const { default : mensajesDAOsql} = await import("../DAOs/daoSQL/mensajes.dao.sql.js");    
         const { default : usuariosDAOsql } = await import("../DAOs/daoSQL/usuarios.dao.sql.js");
