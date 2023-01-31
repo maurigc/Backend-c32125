@@ -7,6 +7,7 @@
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "autocannon": "^7.10.0",
+    "axios": "^1.2.5",
     "balanced-match": "^1.0.2",
     "bcrypt": "^5.1.0",
     "brace-expansion": "^2.0.1",
@@ -44,7 +45,9 @@
     "wrappy": "^1.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node tests/axios-test.js",
+    "testDos": "mocha tests/mocha-test.js",
+    "testTres": "mocha tests/mocha-chai-supertest.js",
     "start": "node server.js"
   },
   "repository": {
@@ -57,5 +60,10 @@
   "bugs": {
     "url": "https://github.com/maurigc/Backend-c32125/issues"
   },
-  "homepage": "https://github.com/maurigc/Backend-c32125#readme"
+  "homepage": "https://github.com/maurigc/Backend-c32125#readme",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
+  }
 }

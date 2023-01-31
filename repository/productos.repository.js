@@ -1,4 +1,4 @@
-import { productosDao } from "../factory/factory.js";
+import { productosDao } from "../DAOs/factory.js";
 import ProductoDto from "../DTOs/productos.dto.js";
 
 
@@ -21,8 +21,8 @@ class RepositorioProducto{
 
     async getById(idProducto){
         const productoEncontrado = await productosDao.getById(idProducto);
-
-        return new ProductoDto(productoEncontrado);
+        
+        return new ProductoDto(...productoEncontrado);
     }
 
 

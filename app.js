@@ -6,7 +6,7 @@ import { router as fail } from "./routes/fail.routes.js";
 import { router as test } from "./routes/test.routes.js";
 // *********************import Session*************************
 import session from "express-session";
-import MongoStore from "connect-mongo";
+
 // *********************import Gzip*************************
 import compression from "compression";
 // ************************************************************
@@ -26,18 +26,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
 app.use(express.static("./public"));
-app.use(session({
-    secret: process.env.SECRET_WORD,
-    store: MongoStore.create({
-        mongoUrl: process.env.URL_MONGO_ATLAS,
-        mongoOptions: config.mongoDb.options
-    }),
-    cookie: {
-        maxAge: 60000 * 10
-    },
-    resave: true,
-    saveUninitialized: true
-}))
+app.use(session(config.session))
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(compression());

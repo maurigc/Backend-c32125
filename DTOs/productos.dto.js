@@ -2,7 +2,7 @@ class ProductoDto{
     constructor(producto){
         this.name = producto.name,
         this.price = producto.price,
-        this.url = producto.url
+        this.urlImage = producto.urlImage
     }
 }
 

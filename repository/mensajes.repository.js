@@ -1,5 +1,5 @@
 import MensajesDto from "../DTOs/mensajes.dto.js";
-import { mensajesDao } from "../factory/factory.js";
+import { mensajesDao } from "../DAOs/factory.js";
 
 
 

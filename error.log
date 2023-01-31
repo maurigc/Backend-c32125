@@ -46,3 +46,387 @@
 [2023-01-17T21:48:14.668] [ERROR] fileError - ReferenceError: io is not defined
     at Socket.emitirNuevoProductos (file:///C:/Users/mauri/Desktop/backendJs/controller/productos.controller.js:115:9)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2023-01-28T14:28:43.592] [ERROR] fileError - Error: productos validation failed: urlImage: Path `urlImage` is required.
+    at ValidationError.inspect (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:780:19)
+    at inspect (node:internal/util/inspect:345:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2165:40)
+    at Object.format (node:internal/util/inspect:2019:10)
+    at basicLayout (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    urlImage: ValidatorError: Path `urlImage` is required.
+        at validate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\document.js:2877:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'urlImage',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2023-01-28T14:29:35.299] [ERROR] fileError - Error: productos validation failed: urlImage: Path `urlImage` is required.
+    at ValidationError.inspect (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:780:19)
+    at inspect (node:internal/util/inspect:345:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2165:40)
+    at Object.format (node:internal/util/inspect:2019:10)
+    at basicLayout (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    urlImage: ValidatorError: Path `urlImage` is required.
+        at validate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\document.js:2877:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'urlImage',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2023-01-28T14:31:14.566] [ERROR] fileError - Error: productos validation failed: urlImage: Path `urlImage` is required.
+    at ValidationError.inspect (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:780:19)
+    at inspect (node:internal/util/inspect:345:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2165:40)
+    at Object.format (node:internal/util/inspect:2019:10)
+    at basicLayout (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    urlImage: ValidatorError: Path `urlImage` is required.
+        at validate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\document.js:2877:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'urlImage',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2023-01-28T14:31:34.889] [ERROR] fileError - Error: productos validation failed: urlImage: Path `urlImage` is required.
+    at ValidationError.inspect (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:780:19)
+    at inspect (node:internal/util/inspect:345:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2165:40)
+    at Object.format (node:internal/util/inspect:2019:10)
+    at basicLayout (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    urlImage: ValidatorError: Path `urlImage` is required.
+        at validate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\document.js:2877:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'urlImage',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2023-01-28T14:34:49.344] [ERROR] fileError - Error: productos validation failed: urlImage: Path `urlImage` is required.
+    at ValidationError.inspect (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:780:19)
+    at inspect (node:internal/util/inspect:345:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2165:40)
+    at Object.format (node:internal/util/inspect:2019:10)
+    at basicLayout (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    urlImage: ValidatorError: Path `urlImage` is required.
+        at validate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\document.js:2877:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'urlImage',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2023-01-28T14:37:08.698] [ERROR] fileError - Error: productos validation failed: urlImage: Path `urlImage` is required.
+    at ValidationError.inspect (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:780:19)
+    at inspect (node:internal/util/inspect:345:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2165:40)
+    at Object.format (node:internal/util/inspect:2019:10)
+    at basicLayout (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\mauri\Desktop\backendJs\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    urlImage: ValidatorError: Path `urlImage` is required.
+        at validate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\document.js:2877:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'urlImage',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2023-01-29T17:56:39.032] [ERROR] fileError - CastError: Cast to ObjectId failed for value "63" (type number) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  messageFormat: undefined,
+  stringValue: '"63"',
+  kind: 'ObjectId',
+  value: 63,
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22),
+  valueType: 'number'
+}
+[2023-01-29T17:57:35.161] [ERROR] fileError - CastError: Cast to ObjectId failed for value "63" (type number) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  messageFormat: undefined,
+  stringValue: '"63"',
+  kind: 'ObjectId',
+  value: 63,
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22),
+  valueType: 'number'
+}
+[2023-01-29T18:02:03.380] [ERROR] fileError - CastError: Cast to ObjectId failed for value "63" (type number) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  messageFormat: undefined,
+  stringValue: '"63"',
+  kind: 'ObjectId',
+  value: 63,
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22),
+  valueType: 'number'
+}
+[2023-01-29T18:02:23.879] [ERROR] fileError - CastError: Cast to ObjectId failed for value "63" (type number) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  messageFormat: undefined,
+  stringValue: '"63"',
+  kind: 'ObjectId',
+  value: 63,
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22),
+  valueType: 'number'
+}
+[2023-01-29T20:18:32.122] [ERROR] fileError - CastError: Cast to ObjectId failed for value "63d55d6da4245cb9d54f4" (type string) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  messageFormat: undefined,
+  stringValue: '"63d55d6da4245cb9d54f4"',
+  kind: 'ObjectId',
+  value: '63d55d6da4245cb9d54f4',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22)
+      at cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast.js:321:39)
+      at model.Query.Query.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:5319:12)
+      at model.Query.Query._castConditions (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:3155:8)
+      at model.Query._wrappedThunk [as _deleteOne] (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\helpers\query\wrapThunk.js:29:8)
+      at C:\Users\mauri\Desktop\backendJs\node_modules\kareem\index.js:426:25
+      at processTicksAndRejections (node:internal/process/task_queues:78:11),
+  valueType: 'string'
+}
+[2023-01-30T16:55:03.846] [ERROR] fileError - CastError: Cast to ObjectId failed for value "productos" (type string) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15) {
+  messageFormat: undefined,
+  stringValue: '"productos"',
+  kind: 'ObjectId',
+  value: 'productos',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22),
+  valueType: 'string'
+}
+[2023-01-30T16:56:28.545] [ERROR] fileError - CastError: Cast to ObjectId failed for value "productos" (type string) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15) {
+  messageFormat: undefined,
+  stringValue: '"productos"',
+  kind: 'ObjectId',
+  value: 'productos',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22),
+  valueType: 'string'
+}
+[2023-01-31T00:38:18.862] [ERROR] fileError - CastError: Cast to ObjectId failed for value "productos" (type string) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15) {
+  messageFormat: undefined,
+  stringValue: '"productos"',
+  kind: 'ObjectId',
+  value: 'productos',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22),
+  valueType: 'string'
+}
+[2023-01-31T00:39:56.725] [ERROR] fileError - CastError: Cast to ObjectId failed for value "productos" (type string) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15) {
+  messageFormat: undefined,
+  stringValue: '"productos"',
+  kind: 'ObjectId',
+  value: 'productos',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22),
+  valueType: 'string'
+}
+[2023-01-31T00:52:16.156] [ERROR] fileError - CastError: Cast to ObjectId failed for value "productos" (type string) at path "_id" for model "productos"
+    at model.Query.exec (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4891:21)
+    at model.Query.Query.then (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\query.js:4990:15) {
+  messageFormat: undefined,
+  stringValue: '"productos"',
+  kind: 'ObjectId',
+  value: 'productos',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.handleSingle (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1542:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1633:20)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\mauri\Desktop\backendJs\node_modules\mongoose\lib\schematype.js:1602:22),
+  valueType: 'string'
+}

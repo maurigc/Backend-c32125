@@ -7,6 +7,10 @@ const obtenerUser = (usuario) => {
     return usuario;
 }
 
+const todosProductos = async() => {
+    return await repoProducto.getAll();
+}
+
 const buscarProductoPorId = async(idProducto) => {
     return await repoProducto.getById(idProducto);
 }
@@ -28,4 +32,4 @@ const guardarYActualizar = async(data) => {
     return await repoProducto.getAll();
 }
 
-export { obtenerUser, buscarProductoPorId, guardarProducto, eliminarProducto, guardarYActualizar };
+export { obtenerUser, buscarProductoPorId, guardarProducto, eliminarProducto, guardarYActualizar, todosProductos };

@@ -15,8 +15,8 @@ router.get("/", getMain)
 
 
 
-// Rutas raiz de producto.
-router.get("/productos", checkAuthenticated, getProductos);
+// Rutas raiz de producto. Agregar checkAuthenticated
+router.get("/productos",  getProductos);
 
 
 
@@ -28,10 +28,6 @@ router.get("/productos/:id", getProductsByID)
 // Ruta para guardar un producto.
 router.post("/productos", postProductos)
 
-
-
-// // Ruta para actualizar un producto ya existente.
-// router.put("/productos/:id", putProductos)
 
 
 

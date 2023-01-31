@@ -1,4 +1,6 @@
+import MongoStore from "connect-mongo";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 const config = {
@@ -24,6 +26,21 @@ const config = {
             filename: "../database/mydb.sqlite"
         },
         useNullAsDefault: true
+    },
+    session: {
+        secret: process.env.SECRET_WORD,
+        store: MongoStore.create({
+            mongoUrl: process.env.URL_MONGO_ATLAS,
+            mongoOptions: {
+                useNewUrlParser: true,
+                useUnifiedTopology: true
+            }
+        }),
+        cookie: {
+            maxAge: 60000 * 10
+        },
+        resave: true,
+        saveUninitialized: true
     }
 }
 

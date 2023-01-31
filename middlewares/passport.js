@@ -1,6 +1,6 @@
 import passport from "passport";
 import passportLocal from "passport-local";
-import { usuariosDao } from "../factory/factory.js";
+import { usuariosDao } from "../DAOs/factory.js";
 import { comparar, encriptar } from "../scripts/encriptarContraseñas.js";
 
 const LocalStrategy = passportLocal.Strategy

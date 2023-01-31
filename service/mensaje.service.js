@@ -1,4 +1,4 @@
-import { mensajesDao } from "../factory/factory.js";
+import { mensajesDao } from "../DAOs/factory.js";
 import { normalizarMensajes } from "../scripts/normalizarMensajes.js";
 import RepositorioMensajes from "../repository/mensajes.repository.js";
 
