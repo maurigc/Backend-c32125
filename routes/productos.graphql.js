@@ -4,7 +4,7 @@ const repoProducto = new RepositorioProducto();
 const getProducto = async ({ _id }) => {
     try {
         const producto = await repoProducto.getById(_id);
-        console.log(producto)
+        
         if(!producto){
             throw new Error('El producto no existe');
         }
