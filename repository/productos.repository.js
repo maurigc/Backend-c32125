@@ -30,6 +30,8 @@ class RepositorioProducto{
         const productoDto = new ProductoDto(producto);
 
         await productosDao.save(productoDto);
+
+        return productoDto;
     }
 
     async deleteById(idProducto){

@@ -23,7 +23,7 @@ describe('Test de api productos', () => {
         })
 
         it('Devuelve un producto por su ID y comprueba su estructura.', async() => {
-            const respuesta = await request.get("/productos/63d96450d01edeef8066a47e");
+            const respuesta = await request.get("/productos/63e13ed9eaa7cf6cf8af61bf");
 
             expect(respuesta.body).to.include.keys('name', 'price', 'urlImage');
         })
@@ -45,7 +45,7 @@ describe('Test de api productos', () => {
         })
 
         it('Elimina un producto de la DB', async() => {
-            const respuesta = await request.delete('/productos/63d96450d01edeef8066a47e');
+            const respuesta = await request.delete('/productos/63e13ed9eaa7cf6cf8af61bf');
 
             expect(respuesta.status).to.eql(200)
         })

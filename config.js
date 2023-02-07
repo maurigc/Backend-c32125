@@ -1,4 +1,6 @@
 import MongoStore from "connect-mongo";
+// import { SchemaGraphql } from "./models/productos.schema.graphql.js";
+// import { getProducto } from './routes/productos.graphql.js'
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -41,7 +43,14 @@ const config = {
         },
         resave: true,
         saveUninitialized: true
-    }
+    },
+    // graphql: {
+    //     schema: SchemaGraphql,
+    //     rootValue:{
+    //         getProducto
+    //     },
+    //     graphiql: true
+    // }
 }
 
 export { config };

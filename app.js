@@ -14,6 +14,12 @@ import { config } from "./config.js";
 import dotenv from "dotenv";
 import { passport } from "./middlewares/passport.js";
 
+// ************************** graphql **********************************
+import { graphqlHTTP } from "express-graphql";
+
+
+import { SchemaGraphql } from "./models/productos.schema.graphql.js";
+import { getProducto, getProductos, saveProducto, deleteProducto } from './routes/productos.graphql.js';
 
 dotenv.config()
 
@@ -40,8 +46,18 @@ app.set("view engine", "ejs");
 
 
 //_________________________________________________________________________________________________________________________
-// Ruta de productos
+// Rutas
 app.use("/api", productos);
+app.use('/productos-graphql', graphqlHTTP({
+        schema: SchemaGraphql,
+        rootValue:{
+            getProducto,
+            getProductos,
+            saveProducto,
+            deleteProducto
+        },
+        graphiql: true
+    }));
 app.use("/api/auth", usuario);
 app.use("/api/fail", fail)
 app.use("/api/test", test)

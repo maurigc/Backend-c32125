@@ -22,7 +22,7 @@ import axios from "axios";
 // Test para corroborar la obtencion de un producto por ID.
 (async() => {
     try {
-        const respuesta = await axios.get('http://localhost:8000/api/productos/63d95a1dd01edeef8066a475/');
+        const respuesta = await axios.get('http://localhost:8000/api/productos/63d9642a5aff84e4dfb3a617/');
         
         console.log('---------- Producto obtenido por id ----------');
         console.log(respuesta.data);
@@ -51,7 +51,7 @@ import axios from "axios";
 // Test para comprobar que elimine un producto de la DB.
 (async() => {
     try {
-        await axios.delete('http://localhost:8000/api/productos/63d95a1dd01edeef8066a475/');
+        await axios.delete('http://localhost:8000/api/productos/63d9642a5aff84e4dfb3a617/');
     
         console.log('eliminado');
         

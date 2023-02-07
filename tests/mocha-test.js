@@ -42,7 +42,7 @@ describe("Test para el manejo de productos", () => {
     it('Debe eliminar un producto.', async() => {
         const productosCompleto = await todosProductos();
         
-        await eliminarProducto("63d9642a5aff84e4dfb3a617");
+        await eliminarProducto("63d96450d01edeef8066a47e");
         
         const productos = await todosProductos();
         

@@ -23,7 +23,7 @@ class ContenedorMongodb {
     //Guardar un mensaje.
     async save(item) {
         try {
-            const newItem = new this.coleccion(item)
+            const newItem = new this.coleccion(item);
 
             await newItem.save();
         } catch (error) {
@@ -55,13 +55,8 @@ class ContenedorMongodb {
     //Eliminar mensaje por su id.
     async deleteById(idItem) {
         try {
-            const itemAEliminar = await this.coleccion.find({_id: {$eq: idItem}})
-            if(itemAEliminar === []){
-                console.log(itemAEliminar)
-                throw new Error('no existe el producto')
-            }
-            
             await this.coleccion.deleteOne({_id: {$eq: idItem}});
+            
         } catch (error) {
             logError.error(error);
         }
