@@ -23,13 +23,9 @@ const getMain = async (req, res) => {
 
 const getProductos = async (req, res) => {
     try {
-        // const username = await obtenerUser(req.session.usuario)
+        const username = await obtenerUser(req.session.usuario)
 
-        // res.render("pages/index", { usuario: username });
-
-        const productos = await todosProductos();
-
-        res.status(200).json(productos)
+        res.render("pages/index", { usuario: username });
     } catch (error) {
         logConsola.info(error);
         res.status(404).json(error);

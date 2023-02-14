@@ -15,8 +15,8 @@ router.get("/", getMain)
 
 
 
-// Rutas raiz de producto. Agregar checkAuthenticated
-router.get("/productos",  getProductos);
+// Rutas raiz de producto.
+router.get("/productos", checkAuthenticated, getProductos);
 
 
 
